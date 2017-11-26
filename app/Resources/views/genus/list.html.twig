@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genus List{% endblock %}
+
+{% block body %}
+    <div class="text-center jumbotron my-4">
+        <h1>Genus List</h1>
+        <p>Fearless aquanauts are constantly discovering and re-classifying deep-sea animals.  </p>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Genus</th>
+            <th># of species</th>
+            <th>Last updated</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for genus in genuses %}
+        <tr>
+            <th scope="row">{{ loop.index }} </th>
+            <td><a href="{{ path('genus_show',{'genusName': genus.name}) }}">{{ genus.name }} </a></td>
+            <td>{{ genus.speciesCount }}</td>
+            <td>{{ genus.updatedAt|date('Y-m-d') }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
