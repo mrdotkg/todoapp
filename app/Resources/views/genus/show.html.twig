@@ -3,6 +3,7 @@
 {% block title %}Genus: {{ genus.name }}{% endblock %}
 
 {% block stylesheets %}
+    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/timeline.css') }}">
 {% endblock %}
 
